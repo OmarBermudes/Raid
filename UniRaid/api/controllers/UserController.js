@@ -8,7 +8,7 @@
 module.exports = {
 
 	new:function (req, res) {
-		res.view('user/signin');
+		res.view();
 	},
 	
 	create:function (req, res) {
@@ -24,7 +24,6 @@ module.exports = {
 			}
 			res.redirect('user')
 		})
-	}
-	
+	}	
 };
 

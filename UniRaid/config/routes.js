@@ -34,9 +34,6 @@ module.exports.routes = {
 
   '/': {
     view: 'home'
-  },
-  '/user/signin':{
-    controller:'UserController',action:'new'
   }
 
   /***************************************************************************
