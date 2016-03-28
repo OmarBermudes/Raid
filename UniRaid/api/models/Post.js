@@ -27,7 +27,7 @@ module.exports = {
   	},
   	// types es el tipo de raid, llegada a la uni o saliendo de la uni
   	types:{
-  		type:'boolean',
+  		type:'integer',
   		required:true
   	},
   	sits:{

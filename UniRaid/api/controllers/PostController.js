@@ -17,9 +17,11 @@ module.exports = {
 			route:req.param('route'),
 			cost:req.param('cost'),
 			num_contact:req.param('num_contact'),
-			types:req.param('types')
+			types:req.param('types'),
+			sits:req.param('sits'),
+			notes:req.param('notes')
 		}
-		User.create(postObj,function(err, post){
+		Post.create(postObj,function(err, post){
 			if(err){
 				console.log(err);
 				return res.redirect('post/new');

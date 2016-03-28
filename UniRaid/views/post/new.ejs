@@ -3,19 +3,25 @@
 	<form action="/post/create" method="POST" accept-charset="utf-8" class="form-signin">
 
 		<label>Correo:</label>
-		<input type="email" name="email" required>
+		<input class="form-control" type="email" name="email" required>
 
 		<label>Ruta:</label>
-		<input type="text" name="route" required>
+		<input class="form-control" type="text" name="route" required>
 
 		<label>Costo:</label>
-		<input type="number" name="cost" required>
+		<input class="form-control" type="number" name="cost" required>
 
 		<label>Numero de contacto:</label>
-		<input type="text" name="num_contact" required>
+		<input class="form-control" type="text" name="num_contact" required>
 
 		<label>Tipo:</label>
-		<input type="number" name="types" required>
+		<input class="form-control" type="number" name="types" required>
+
+		<label>Asientos disponibles:</label>
+		<input class="form-control" type="number" name="sits" required>
+
+		<label>Notas:</label>
+		<input class="form-control" type="text" name="notes">
 
 		<input type="submit">
 	</form>
