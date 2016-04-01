@@ -1,0 +1,38 @@
+<div class="container">
+	<h2>Posts de <%= posts.email %> </h2>
+	<table class="table table-hover">
+		<th class="text-center" >Email</th>
+		<th class="text-center" >hour</th>
+		<th class="text-center" >route</th>
+		<th class="text-center" >cost</th>
+		<th class="text-center" >num_contact</th>
+		<th class="text-center" >types</th>
+		<th class="text-center" >sits</th>
+		<th class="text-center" >notes</th>
+		<th class="text-center" colspan="2">Opciones</th>
+		<% _.each(posts, function(post) { %>
+		<tr>
+			<td> <%=post.email%> </td>
+			<td> <%=post.hour%> </td>
+			<td> <%=post.route%> </td>
+			<td> <%=post.cost%> </td>
+			<td> <%=post.num_contact%> </td>
+			<td> <%=post.types%> </td>
+			<td> <%=post.sits%> </td>
+			<td> <%=post.notes%> </td>
+
+			<td><a href="/post/edit/<%= post.id %>" class="btn btn-sm btn-success">Ver detales</a>
+			</td>
+
+			<td>
+				<form action="/post/destroy/<%= post.id %>" method="PSOT" accept-charset="utf-8">
+					<input type="hidden" name="_method" value="delete">
+					<input type="submit" class="btn btn-danger btn-sm" value="Eliminar">
+					<input type="hidden" name="_csrf" value="<%= _csrf%>">
+				</form>
+			</td>
+
+		</tr>
+		<%})%>
+	</table>
+</div>

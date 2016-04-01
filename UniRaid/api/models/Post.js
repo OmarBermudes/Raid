@@ -30,13 +30,20 @@ module.exports = {
   		type:'integer',
   		required:true
   	},
+    hour:{
+      type:'string',
+      required:true
+    },
   	sits:{
   		type:'integer',
   		required:true
   	},
   	notes:{
   		type:'text'
-  	}
+  	},
+    owner:{
+      model:'User'
+    }
   }
 };
 

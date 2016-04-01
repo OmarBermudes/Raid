@@ -3,7 +3,10 @@
 	<form action="/post/create" method="POST" accept-charset="utf-8" class="form-signin">
 
 		<label>Correo:</label>
-		<input class="form-control" type="email" name="email" required>
+		<input class="form-control" value="<%= req.session.User.email%>" name="email" required readonly>
+
+		<label>Hora:</label>
+		<input class="form-control" type="text" name="hour" required> 
 
 		<label>Ruta:</label>
 		<input class="form-control" type="text" name="route" required>

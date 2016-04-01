@@ -12,23 +12,52 @@ module.exports = {
 	},
 	
 	create:function (req, res) {
+		// console.log(req);
 		var postObj={
 			email:req.param('email'),
+			hour:req.param('hour'),
 			route:req.param('route'),
 			cost:req.param('cost'),
 			num_contact:req.param('num_contact'),
 			types:req.param('types'),
 			sits:req.param('sits'),
-			notes:req.param('notes')
+			notes:req.param('notes'),
+			owner: req.session.User.id
 		}
 		Post.create(postObj,function(err, post){
 			if(err){
 				console.log(err);
-				return res.redirect('post/new');
+				return res.redirect('/post/new');
 			}
-			res.redirect('post')
+			res.redirect('/post')
 		})
-	}	
+	},
+	index:function(req, res, next){
+		var id = req.session.User.id;
+		User.findOne({id:id}).populateAll().exec(function (err, owner) {
+			if(err){
+				req.session.flash={
+					err:err
+				}
+				return next(err);
+			}
+			Post.find({owner:owner.id}).exec(function (err, posts) {
+				if(err){
+					req.session.flash={
+						err:err
+					}
+					return next(err)
+				}
+				res.view({
+					posts:posts
+				})
+			});
+		});
+	}
+
+	// show:function (req, res, next) {
+
+	// }
 	
 };
 
