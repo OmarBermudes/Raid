@@ -1,0 +1,19 @@
+<div class="container">
+<h2>Vamos a la uni QQ</h2>
+	<table class="table table-hover">
+		<th>hour</th>
+		<th>route</th>
+		<th>cost</th>
+		<th>Ir al post</th>
+		<% _.each(posts, function(post) { %>
+		<tr>
+			<td> <%=post.hour%> </td>
+			<td> <%=post.route%> </td>
+			<td> <%=post.cost%> </td>
+
+			<td><a href="/post/show/<%= post.id %>" class="btn btn-sm btn-success">Ver detales</a>
+			</td>
+		</tr>
+		<%})%>
+	</table>
+</div>

@@ -29,27 +29,21 @@ module.exports = {
 			res.redirect('/user/show/'+user.id);
 		});
 	},
-	show:function(req ,res, next){
-		User.findOne(req.param('id'),function userFounded(err, user){
-			if(err){
-				console.log(err);
-				req.session.flash={
-					err:err
-				};
-				return next(err);
-			}
-			res.view({
-				user:user
-			});
-		});
-	},
-	index:function (req, res, next) {
-		// if(err){
-		// 	req.session.flash={
-		// 		err:err
-		// 	}
-		// 	return next(err);
-		// }
+	// show:function(req ,res, next){
+	// 	User.findOne(req.param('id'),function userFounded(err, user){
+	// 		if(err){
+	// 			console.log(err);
+	// 			req.session.flash={
+	// 				err:err
+	// 			};
+	// 			return next(err);
+	// 		}
+	// 		res.view({
+	// 			user:user
+	// 		});
+	// 	});
+	// },
+	index:function (req, res,next){
 		res.view();
 	}
 };

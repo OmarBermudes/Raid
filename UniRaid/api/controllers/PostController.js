@@ -53,6 +53,32 @@ module.exports = {
 				})
 			});
 		});
+	},
+	arrive:function (req, res, next) {
+		Post.find().where({'types':0 , 'sits':{">":0}}).sort('createdAt DESC').exec(function (err, posts) {
+			if(err){
+				req.session.flash={
+					err:err
+				}
+				return next(err);
+			}
+			res.view({
+				posts:posts
+			})
+		})
+	},
+	departed:function (req, res, next) {
+		Post.find().where({'types':1 , 'sits':{">":0}}).sort('createdAt DESC').exec(function (err, posts) {
+			if(err){
+				req.session.flash={
+					err:err
+				}
+				return next(err);
+			}
+			res.view({
+				posts:posts
+			})
+		})
 	}
 
 	// show:function (req, res, next) {

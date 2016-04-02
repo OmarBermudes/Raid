@@ -30,6 +30,10 @@ module.exports.policies = {
   PostController:{
     new:['flash','authenticated'],
     index:['flash','authenticated']
+  },
+  UserController:{
+    new:'flash',
+    index:['flash','authenticated']
   }
 
   /***************************************************************************
