@@ -1,4 +1,34 @@
 <div class="container">
 	<h2>Mi perfil</h2>
-	<a href="/post/new" class="btn btn-sm btn-success">Crear Post</a>		
+	<a href="/post/new" class="btn btn-sm btn-success">Crear Post</a>
+	<br>
+	<h2>Mis posts</h2>
+	<table class="table table-hover">
+		<th>Hora</th>
+		<th>Ruta</th>
+		<th>Costo</th>
+		<th>Contacto</th>
+		<th>Tipo</th>
+		<th>Asiento</th>
+		<th>Notas</th>
+		<th>Activo</th>
+		<th>Editar</th>
+		<% _.each(posts, function(post) { %>
+		<tr>
+			<td> <%=post.hour%> </td>
+			<td> <%=post.route%> </td>
+			<td> <%=post.cost%> </td>
+			<td> <%=post.num_contact%> </td>
+			<td> <%=post.types%> </td>
+			<td> <%=post.sits%> </td>
+			<td> <%=post.notes%> </td>
+			<td> <%=post.active%> </td>
+
+
+
+			<td><a href="/post/edit/<%= post.id %>" class="btn btn-sm btn-success">Editar</a>
+			</td>
+		</tr>
+		<%})%>
+	</table>
 </div>

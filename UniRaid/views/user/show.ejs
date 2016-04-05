@@ -1,10 +1,62 @@
-<div class="container">
-	<h2>Informacion de usuarios</h2>
-	<ul>
-		<li> <%= user.email %> </li>
+<div id="login">
+	<% if(flash && flash.err) {%>
+	<ul class="alert alert-success">
+		<% Object.keys(flash.err).forEach(function(error){%>
+		<li> <%- JSON.stringify(flash.err[error])%></li>
+		<%})%>
 	</ul>
+	<%}%>
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet">
+    <div class="container">    
+        <div id="loginbox" class="col-lg-4 col-lg-offset-4 col-md-6 col-md-offset-3 col-sm-12 col-sm-offset-0 col-xs-12 col-xs-offset-0">                    
+            <div class="panel panel-default" >
+                    <div class="panel-heading">
+                        <div class="panel-title">Por favor inicie sesión</div>                        
+                    </div>
+                    <div style="padding-top:30px" class="panel-body" >
+                        <div style="display:none" id="login-alert" class="alert alert-danger col-sm-12"></div>                            
+                        <form action="/session/create" method="POST" accept-charset="utf-8" id="loginform" class="form-horizontal" role="form">                                    
+                            <div style="margin-bottom: 25px" class="input-group">
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                                <input id="login-username" type="text" class="form-control" name="email" placeholder="Correo">                                        
+                            </div>                                
+                            <div style="margin-bottom: 25px" class="input-group">
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-minus"></i></span>
+                                <input id="login-password" type="password" class="form-control" name="password" placeholder="Contraseña">
+                            </div>               
+                                
+                            <div class="input-group">
+                                <div class="checkbox">
+                                    <label>
+                                        <input id="login-remember" type="checkbox" name="remember" value="1"> Recordarme </input>
+                                    </label>
+                                </div>
+                            </div>
 
-	<form action="/user/edit/<%= user.id %>" method="POST" accepted-charset="utf-8">
-		<button type="submit" class="btn btn-success"> Edit </button>
-	</form>
+
+                            <div style="margin-top:10px" class="form-group">
+                                <!-- Button -->
+
+                                <div class="col-sm-12 controls">
+                                 <input type="submit" value="Entrar" class="btn btn-sm btn-success">
+
+                                 <a href="/user/new" class="btn btn-info">Registar</a>
+                                </div>
+                            </div>
+
+
+                            <div class="form-group">
+                                <div class="col-md-12 control">
+                                    
+                                    <div style="border-top: 1px solid#888; padding-top:15px; font-size:85%" >
+                                    <div style="float:right; font-size: 80%; position: relative; top:-10px"><a href="#">¿Olvidaste la contraseña?</a></div>
+                                    </div>
+                                </div>
+                            </div>    
+                        </form>
+                    </div>                     
+                </div>  
+            </div>         
+        </div> 
+    </div>        
 </div>
