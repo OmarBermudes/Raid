@@ -1,1 +1,14 @@
-show.ejs
+<div class="container">
+	<h2>Informacion del post</h2>
+	<ul>
+		<li> <b>Propietario: </b><%= post.email %> </li>
+		<li> <b>Hora: </b><%= post.hour %> </li>
+		<li> <b>Ruta: </b><%= post.route %> </li>
+		<li> <b>Costo: </b><%=post.cost%> </li>
+		<li> <b>Contacto: </b><%=post.num_contact%> </li>
+		<li> <b>Tipo: </b><%=post.types%> </li>
+		<li> <b>Asientos: </b><%=post.sits%> </li>
+		<li> <b>Notas: </b><%=post.notes%> </li>
+		<li> <b>Activo: </b><%= post.active %> (1 activo - 0 inactivo)</li>
+	</ul>
+</div>

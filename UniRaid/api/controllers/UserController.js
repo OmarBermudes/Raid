@@ -25,26 +25,25 @@ module.exports = {
 				}
 				return res.redirect('user/new');
 			}
-			console.log("se supone que lo creo");
 			res.redirect('/user/show/'+user.id);
 		});
 	},
-	// show:function(req ,res, next){
-	// 	User.findOne(req.param('id'),function userFounded(err, user){
-	// 		if(err){
-	// 			console.log(err);
-	// 			req.session.flash={
-	// 				err:err
-	// 			};
-	// 			return next(err);
-	// 		}
-	// 		res.view({
-	// 			user:user
-	// 		});
-	// 	});
-	// },
-	index:function (req, res,next){
+	show:function(req ,res, next){
 		res.view();
+	},
+	index:function (req, res,next){
+		var email = req.session.User.email;
+		Post.find().where({'email':email}).sort('createdAt DESC').exec(function (err, posts) {
+			if(err){
+				req.session.flash={
+					err:err
+				}
+				return next(err);
+			}
+			res.view({
+				posts:posts
+			})
+		})
 	}
 };
 

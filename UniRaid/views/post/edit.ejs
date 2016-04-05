@@ -1,0 +1,32 @@
+<div class="container">
+	<form action="/post/update/<%= post.id %>" method="POST" accept-charset="utf-8" class="form-signin" >
+		<label>Correo:</label>
+		<input class="form-control" value="<%= post.email%>" name="email" required readonly>
+
+		<label>Hora:</label>
+		<input class="form-control" value="<%= post.hour%>" type="text" name="hour" required> 
+
+		<label>Ruta:</label>
+		<input class="form-control" value="<%= post.route%>" type="text" name="route" required>
+
+		<label>Costo:</label>
+		<input class="form-control" value="<%= post.cost%>" type="number" name="cost" required>
+
+		<label>Numero de contacto:</label>
+		<input class="form-control" value="<%= post.num_contact%>" type="text" name="num_contact" required>
+
+		<label>Tipo:</label>
+		<input class="form-control" value="<%= post.types%>" type="number" name="types" required>
+
+		<label>Asientos disponibles:</label>
+		<input class="form-control" value="<%= post.sits%>" type="number" name="sits" required>
+
+		<label>Notas:</label>
+		<input class="form-control" value="<%= post.notes%>" type="text" name="notes">
+
+		<label >Activo</label>
+		<input class="form-control" value="<%= post.active%>" type="text" name="active">
+
+		<input class="btn btn-primary" type="submit">
+	</form>
+</div>

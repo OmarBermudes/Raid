@@ -41,6 +41,10 @@ module.exports = {
   	notes:{
   		type:'text'
   	},
+    active:{
+      type:'integer',
+      required:true
+    },
     owner:{
       model:'User'
     }
